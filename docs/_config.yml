@@ -28,7 +28,7 @@ twitter_username: swapnakm15
 github_username:  swapna15
 
 # Build settings
-theme: jekyll-theme-minimal
+theme: minima
 plugins:
   - jekyll-feed
 
