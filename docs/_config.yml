@@ -22,8 +22,8 @@ title: ArchitectualDesigns
 email: swapnakm15@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Publishing architectural designs i have come accross my proffesional expirience
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/swapna" # the subpath of your site, e.g. /blog
+url: "https://architecturalblogs.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: swapnakm15
 github_username:  swapna15
 
