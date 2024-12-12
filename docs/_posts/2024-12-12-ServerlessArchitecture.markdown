@@ -38,8 +38,7 @@ Building a Serverless Application
 
 Let’s create a simple Metadata Manager app where users can manage website render configurations. This example can be expanded to wide veraity of usecases for a web applications where you want a dynamic content without doing any code cahnges. Here’s the architecture:
 
-{% include image.html file="ServerlessArchitecture.png" url="https://architecturalblogs.github.io/swapna/images" alt="ServerlessArchitecture Example" caption="REST API implementation" border="true" max-width="90%" %}
-
+![Serverless Architecture](/images/ServerlessArchitecture.png)
 
 1. API Gateway
 
