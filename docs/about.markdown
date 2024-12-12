@@ -4,15 +4,9 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+This is Swapna Kathaligere Matt, with over 17+ years of experience in delivering high-impact solutions and leading teams to success. Extensive expertise in AWS Cloud migrations, disaster recovery implementations, and process improvement initiatives. Proven track record of success across industries, including Airlines, Learning Management, Teletherapy, Social Media, and Content Management. Adept at aligning IT strategies with business objectives while adhering to cybersecurity standards.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+You can find the source code for Swapna at GitHub:
+https://github.com/swapna15
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+[swapna-organization]: https://github.com/ArchitecturalBlogs
