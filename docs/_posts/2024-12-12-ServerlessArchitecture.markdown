@@ -32,7 +32,7 @@ Building a Serverless Application
 
 Let’s create a simple Metadata Manager app where users can manage website render configurations. This example can be expanded to wide veraity of usecases for a web applications where you want a dynamic content without doing any code cahnges. Here’s the architecture:
 
-![Serverless Architecture](swapna/images/ServerlessArchitecture.png)
+![Serverless Architecture](/swapna/images/ServerlessArchitecture.png)
 
 1. API Gateway
 
