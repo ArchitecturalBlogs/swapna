@@ -58,6 +58,8 @@ Type: Attribute-Based Access Control (ABAC) engine.
 Type:  Business rules for decision-making.
 Website: IBM ODM
 
+![OPA Usecase](/swapna/images/OPAUseCaseRBACorABACArchitecture.png)
+
 
 ## Usecase for RBAC(Role Based Access Control)
 Let’s take an exmaple for RBAC with 2 users who login to a website:
@@ -290,7 +292,7 @@ You can deploy OPA as a sidecar container (in Kubernetes) or a standalone servic
     curl -X PUT --data-binary @rbac.rego http://localhost:8181/v1/policies/rbac
     ```
     </p>
-    
+
 ## Conclusion
 OPA (Open Policy Agent) offers several solutions for managing business rules, especially in complex scenarios. For example, we’ve successfully implemented this model using a serverless architecture with API Gateway, Lambda, and DynamoDB. When deciding between OPA and a serverless setup, it’s important to consider factors like performance, how often your code needs updates, scalability, portability, and cost. Here's when you might want to use OPA:
 
