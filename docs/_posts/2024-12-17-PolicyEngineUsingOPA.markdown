@@ -4,7 +4,7 @@ title:  "Policy Engine using OPA (Open Policy Agent)"
 date:   2024-12-17 10:50:00 - 0600
 categories: Policy Engines, Open Policy Agent (OPA), Access Control, Firewall Rules
 ---
-## From Rules to Action: Exploring the Power of Policy Engines using Open Policy Agent (OPA)
+## From Rules to Action: Exploring Policy Engines using Open Policy Agent (OPA)
 
 ## What is a Policy Engine?
 A policy engine is a tool that helps automate decisions based on rules. For example, it can decide who can access certain data or actions in a system. By using predefined rules, policy engines ensure everything runs securely and consistently, without the need for manual checks.
