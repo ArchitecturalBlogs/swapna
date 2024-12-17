@@ -290,10 +290,18 @@ You can deploy OPA as a sidecar container (in Kubernetes) or a standalone servic
     curl -X PUT --data-binary @rbac.rego http://localhost:8181/v1/policies/rbac
     ```
     </p>
+    
 ## Conclusion
-OPA(Open Policy Agent) offers multiple solutions to business rules with higher complexity. I know of the case where we have achieved this same model using the Serverless Architecture using API Gatewy, Lambda and Dynamodb. We need to choose wisely based on the use case like performance, how often you need your code changes to be deployed to have the access controls to be applied, scalibility, potability and cost. OPA can be considered for the following defined usecase.
-* Centralized, externalized policy management.
-* Complex, fine-grained policies (RBAC, ABAC).
-* Scalability and performance.
-* Auditing and compliance for large-scale systems.
-* Lower Cost.
+OPA (Open Policy Agent) offers several solutions for managing business rules, especially in complex scenarios. For example, we’ve successfully implemented this model using a serverless architecture with API Gateway, Lambda, and DynamoDB. When deciding between OPA and a serverless setup, it’s important to consider factors like performance, how often your code needs updates, scalability, portability, and cost. Here's when you might want to use OPA:
+
+* Centralized Policy Management: OPA centralizes policy decisions, making rule management easier.
+
+* Complex Access Control: OPA is ideal for detailed access controls like RBAC or ABAC.
+
+* Scalability and Performance: OPA handles large-scale policy evaluations effectively.
+
+* Auditing and Compliance: OPA logs decisions, helping with compliance and tracking.
+
+* Cost Efficiency: OPA can be more cost-effective.
+
+OPA is great for large systems with complex access control and compliance needs, but serverless may be better for quicker changes or simpler setups. It depends on your performance, scalability, and cost needs.
