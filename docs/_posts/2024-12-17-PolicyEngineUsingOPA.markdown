@@ -194,9 +194,9 @@ Response:
 ```bash
 curl -X POST http://localhost:8181/v1/data/authz/allow \
 -d '{ "role": "employee", "action": "view", "department": "hr", "time": "10:00" }'
-```bash
+```
 Response:
-<pre>
+```bash
 { "result": false }
 ```
 
