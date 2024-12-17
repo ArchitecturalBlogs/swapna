@@ -69,223 +69,227 @@ Let’s take an exmaple for RBAC with 2 users who login to a website:
 1. Install OPA
 Install OPA on your system or include it as part of your application’s deployment.
 
-For macOS (using Homebrew):
-brew install opa
-For Linux (using curl):
-<p markdown="block">
-```bash
-curl -L -o opa https://openpolicyagent.org/downloads/latest/opa_linux_amd64
-chmod +x opa
-sudo mv opa /usr/local/bin/
-```
-</p>
+    For macOS (using Homebrew):
+    ```bash
+    brew install opa
+    ```
+    For Linux (using curl):
+    <p markdown="block">
+    ```bash
+    curl -L -o opa https://openpolicyagent.org/downloads/latest/opa_linux_amd64
+    chmod +x opa
+    sudo mv opa /usr/local/bin/
+    ```
+    </p>
 
-Check the installation:
-<p markdown="block">
-```bash
-opa version
-```
-</p>
+    Check the installation:
+    <p markdown="block">
+    ```bash
+    opa version
+    ```
+    </p>
 2. Write the RBAC and ABAC Policy in Rego
 Create a policy file named rbac.rego. This policy checks the role of the user and grants permissions accordingly.
 
-RBAC Policy Example (Rego)
-<p markdown="block">
-```rego
-package authz
+    RBAC Policy Example (Rego)
+    <p markdown="block">
+    ```rego
+    package authz
 
-# Default deny all access
-default allow = false
+    # Default deny all access
+    default allow = false
 
-# Admins have full access to all actions
-allow {
-    input.role == "admin"
-}
+    # Admins have full access to all actions
+    allow {
+        input.role == "admin"
+    }
 
-# Users (non-admins) can only perform view actions
-allow {
-    input.role == "user"
-    input.action == "view"
-}
+    # Users (non-admins) can only perform view actions
+    allow {
+        input.role == "user"
+        input.action == "view"
+    }
 
-# Attribute-Based Access Control (ABAC)
-# Example: Only allow access if the user is in the allowed department AND during office hours
-allow {
-    input.role == "employee"
-    input.action == "view"
-    input.department == "sales"
-    is_office_hours()
-}
+    # Attribute-Based Access Control (ABAC)
+    # Example: Only allow access if the user is in the allowed department AND during office hours
+    allow {
+        input.role == "employee"
+        input.action == "view"
+        input.department == "sales"
+        is_office_hours()
+    }
 
-# Helper function to check office hours (8 AM to 6 PM)
-is_office_hours() {
-    input.time >= "08:00"  # Start time
-    input.time <= "18:00"  # End time
-}
-```
-</p>
-* RBAC Rules:
-Admins (role == "admin") can access all features.
-Users (role == "user") can only perform the view action.
-* ABAC Rule:
-Employees (role == "employee") must meet specific conditions:
-They are part of the "sales" department (input.department == "sales").
-They access resources only during office hours (is_office_hours()).
-* Helper Function:
-The is_office_hours() function ensures access is restricted to a time window (8:00 AM - 6:00 PM)
+    # Helper function to check office hours (8 AM to 6 PM)
+    is_office_hours() {
+        input.time >= "08:00"  # Start time
+        input.time <= "18:00"  # End time
+    }
+    ```
+    </p>
+
+    * RBAC Rules:
+    Admins (role == "admin") can access all features.
+    Users (role == "user") can only perform the view action.
+    * ABAC Rule:
+    Employees (role == "employee") must meet specific conditions:
+    They are part of the "sales" department (input.department == "sales").
+    They access resources only during office hours (is_office_hours()).
+    * Helper Function:
+    The is_office_hours() function ensures access is restricted to a time window (8:00 AM - 6:00 PM)
 
 3. Test the Policy Locally
 Start the OPA server to load the policy and test it with different inputs.
 
-Run OPA as a Server
-<p markdown="block">
-```bash
-opa run --server
-```
-</p>
-OPA will now be running at http://localhost:8181.
+    Run OPA as a Server
+    <p markdown="block">
+    ```bash
+    opa run --server
+    ```
+    </p>
+    OPA will now be running at http://localhost:8181.
 
-Test the Policy Using Input Data
+    Test the Policy Using Input Data
 
-Use curl to test the policy for different roles.
+    Use curl to test the policy for different roles.
 
-* Admin Role (Full Access):
-<p markdown="block">
-```bash
-curl -X POST http://localhost:8181/v1/data/authz/allow \
--d ’{ "role": "admin", "action": "edit" }’
-```
-</p>
-Response:
-<p markdown="block">
-```bash
-{
-  "result": true
-}
-```
-</p>
-* User Role (View Only):
-<p markdown="block">
-```bash
-curl -X POST http://localhost:8181/v1/data/authz/allow \
--d ’{ "role": "user", "action": "view" }’
-```
-</p>
-Response:
-<p markdown="block">
-```bash
-{
-  "result": true
-}
-```
-</p>
-User Role Trying Edit Access:
-<p markdown="block">
-```bash
-curl -X POST http://localhost:8181/v1/data/authz/allow \
--d ’{ "role": "user", "action": "edit" }’
-```
-</p>
-Response:
-<p markdown="block">
-```bash
-{
-  "result": false
-}
-```
-</p>
-* Employee Role (ABAC - Allowed During Office Hours):
-<p markdown="block">
-```bash
-curl -X POST http://localhost:8181/v1/data/authz/allow \
--d ’{ "role": "employee", "action": "view", "department": "sales", "time": "09:30" }’
-```
-</p>
-Response:
-<p markdown="block">
-```bash
-{ "result": true }
-```
-</p>
-* Employee Role (Outside Office Hours):
-<p markdown="block">
-```bash
-curl -X POST http://localhost:8181/v1/data/authz/allow \
--d ’{ "role": "employee", "action": "view", "department": "sales", "time": "19:00" }’
-```
-</p>
-Response:
-<p markdown="block">
-```bash
-{ "result": false }
-```
-</p>
-* Unauthorized Department:
-<p markdown="block">
-```bash
-curl -X POST http://localhost:8181/v1/data/authz/allow \
--d ’{ "role": "employee", "action": "view", "department": "hr", "time": "10:00" }’
-```
-</p>
-Response:
-<p markdown="block">
-```bash
-{ "result": false }
-```
-</p>
+    * Admin Role (Full Access):
+    <p markdown="block">
+    ```bash
+    curl -X POST http://localhost:8181/v1/data/authz/allow \
+    -d ’{ "role": "admin", "action": "edit" }’
+    ```
+    </p>
+    Response:
+    <p markdown="block">
+    ```bash
+    {
+    "result": true
+    }
+    ```
+    </p>
+    * User Role (View Only):
+    <p markdown="block">
+    ```bash
+    curl -X POST http://localhost:8181/v1/data/authz/allow \
+    -d ’{ "role": "user", "action": "view" }’
+    ```
+    </p>
+    Response:
+    <p markdown="block">
+    ```bash
+    {
+    "result": true
+    }
+    ```
+    </p>
+    User Role Trying Edit Access:
+    <p markdown="block">
+    ```bash
+    curl -X POST http://localhost:8181/v1/data/authz/allow \
+    -d ’{ "role": "user", "action": "edit" }’
+    ```
+    </p>
+    Response:
+    <p markdown="block">
+    ```bash
+    {
+    "result": false
+    }
+    ```
+    </p>
+    * Employee Role (ABAC - Allowed During Office Hours):
+    <p markdown="block">
+    ```bash
+    curl -X POST http://localhost:8181/v1/data/authz/allow \
+    -d ’{ "role": "employee", "action": "view", "department": "sales", "time": "09:30" }’
+    ```
+    </p>
+    Response:
+    <p markdown="block">
+    ```bash
+    { "result": true }
+    ```
+    </p>
+    * Employee Role (Outside Office Hours):
+    <p markdown="block">
+    ```bash
+    curl -X POST http://localhost:8181/v1/data/authz/allow \
+    -d ’{ "role": "employee", "action": "view", "department": "sales", "time": "19:00" }’
+    ```
+    </p>
+    Response:
+    <p markdown="block">
+    ```bash
+    { "result": false }
+    ```
+    </p>
+    * Unauthorized Department:
+    <p markdown="block">
+    ```bash
+    curl -X POST http://localhost:8181/v1/data/authz/allow \
+    -d ’{ "role": "employee", "action": "view", "department": "hr", "time": "10:00" }’
+    ```
+    </p>
+    Response:
+    <p markdown="block">
+    ```bash
+    { "result": false }
+    ```
+    </p>
 
 4. Integrate OPA with Your Application
 To enforce the policy in your application, make an HTTP request to OPA’s API with the user’s role and action as input.
 
-Example Integration in Node.js
+    Example Integration in Node.js
 
-Here’s how you can call OPA to make access control decisions.
-<p markdown="block">
-```js
-const fetch = require("node-fetch");
+    Here’s how you can call OPA to make access control decisions.
+    <p markdown="block">
+    ```js
+    const fetch = require("node-fetch");
 
-// Function to check access
-async function checkAccess(role, action) {
-    const response = await fetch("http://localhost:8181/v1/data/authz/allow", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ role: role, action: action }),
-    });
-    const result = await response.json();
-    return result.result; // true or false
-}
-
-// Example Usage
-(async () => {
-    const role = "user"; // Could be "admin" or "user"
-    const action = "edit"; // Action the user wants to perform
-
-    const isAllowed = await checkAccess(role, action);
-    if (isAllowed) {
-        console.log("Access granted");
-    } else {
-        console.log("Access denied");
+    // Function to check access
+    async function checkAccess(role, action) {
+        const response = await fetch("http://localhost:8181/v1/data/authz/allow", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ role: role, action: action }),
+        });
+        const result = await response.json();
+        return result.result; // true or false
     }
-})();
-```
-</p>
+
+    // Example Usage
+    (async () => {
+        const role = "user"; // Could be "admin" or "user"
+        const action = "edit"; // Action the user wants to perform
+
+        const isAllowed = await checkAccess(role, action);
+        if (isAllowed) {
+            console.log("Access granted");
+        } else {
+            console.log("Access denied");
+        }
+    })();
+    ```
+    </p>
+
 5. Deploy OPA with Your Application
 You can deploy OPA as a sidecar container (in Kubernetes) or a standalone service alongside your application.
 
-Docker Example:
+    Docker Example:
 
-Create a Docker container with OPA and the policy file:
-<p markdown="block">
-```bash
-docker run -p 8181:8181 -v $(pwd):/policies openpolicyagent/opa:latest run --server /policies/rbac.rego
-```
-</p>
-Your application can now send policy evaluation requests to http://localhost:8181/v1/data/authz/allow.
-<p markdown="block">
-```bash
-curl -X PUT --data-binary @rbac.rego http://localhost:8181/v1/policies/rbac
-```
-</p>
+    Create a Docker container with OPA and the policy file:
+    <p markdown="block">
+    ```bash
+    docker run -p 8181:8181 -v $(pwd):/policies openpolicyagent/opa:latest run --server /policies/rbac.rego
+    ```
+    </p>
+    Your application can now send policy evaluation requests to http://localhost:8181/v1/data/authz/allow.
+    <p markdown="block">
+    ```bash
+    curl -X PUT --data-binary @rbac.rego http://localhost:8181/v1/policies/rbac
+    ```
+    </p>
 ## Conclusion
 OPA(Open Policy Agent) offers multiple solutions to business rules with higher complexity. I know of the case where we have achieved this same model using the Serverless Architecture using API Gatewy, Lambda and Dynamodb. We need to choose wisely based on the use case like performance, how often you need your code changes to be deployed to have the access controls to be applied, scalibility, potability and cost. OPA can be considered for the following defined usecase.
 * Centralized, externalized policy management.
