@@ -38,10 +38,10 @@ In this case, only users who are admins are allowed access to sensitive data.
 2. OPA Architecture
 OPA can be used in many different environments. You can run it alongside your applications or as a centralized service. It evaluates policies in real time and returns a decision based on the rules you’ve set.
 
-## Usaecases for OPA
+## Usecases for OPA
 1. Access Control: Role Based Access Control(RBAC) and Attributes Based Access Control(ABAC)
 2. Security and Compliance: Policies to verify encrption or authorized users are allowed to access certain resources.
-3. It can be used in other decision making ona defined rules which less complexity.
+3. It can be used in other decision making on a defined rules with complex business logics.
 
 ## Other products for Policy engines
 There are several paid policy engines and commercial solutions that provide policy enforcement, authorization, and governance capabilities, often with additional enterprise features. Some of them I have listed below.
@@ -66,7 +66,7 @@ Let’s take an exmaple for RBAC with 2 users who login to a website:
 1. Admins have full access to all features like view, edit, delete.
 2. User/Viewer have view-only access.
 
-## Steps to Implement OPA for Role-Based Access Management
+## Steps to Implement OPA for Role-Based Access Management or Attribute Based Access Management
 
 1. Install OPA
 Install OPA on your system or include it as part of your application’s deployment.
