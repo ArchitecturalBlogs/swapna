@@ -61,10 +61,11 @@ Website: IBM ODM
 ![OPA Usecase](/swapna/images/OPAUseCaseRBACorABACArchitecture.png)
 
 
-## Usecase for RBAC(Role Based Access Control)
+## Usecase for RBAC(Role Based Access Control) or ABAC(Attributes Based Access Control)
 Let’s take an exmaple for RBAC with 2 users who login to a website:
 1. Admins have full access to all features like view, edit, delete.
 2. User/Viewer have view-only access.
+3. Employees working in office hours will get view access to sales
 
 ## Steps to Implement OPA for Role-Based Access Management or Attribute Based Access Management
 
