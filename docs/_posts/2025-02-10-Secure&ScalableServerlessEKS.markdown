@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Secure Serverless EKS: A DevSecOps Journey with Fargate Profile"
-date:   2025-02-26 10:50:00 - 0600
-categories: Policy Engines, Open Policy Agent (OPA), Access Control, Firewall Rules
+date:   2025-02-10 11:47:00 - 0600
+categories: EKS, Serverless, Fargate profile, terraform, helm, frontend, backend, devsecops
 ---
 ## Deploying Secure Frontend and Backend Services to EKS Using Fargate with Terraform, GitHub Workflows, and DevSecOps
 
