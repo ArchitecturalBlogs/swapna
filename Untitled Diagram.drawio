@@ -1,0 +1,242 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15" version="26.2.2">
+  <diagram name="Page-1" id="_GczGbuA_trtGoe4T5nF">
+    <mxGraphModel dx="1354" dy="779" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-88" value="AWS Cloud" style="sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud;strokeColor=#858B94;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#858B94;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="110" width="390" height="590" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-97" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry width="850" height="850" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-5" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="150" y="220" width="330" height="338" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-3" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="KD8z_VLSOWN3E_mmizZI-5">
+          <mxGeometry y="20.120388888888893" width="330" height="317.8796111111111" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-2" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#232F3E;dashed=0;verticalLabelPosition=middle;verticalAlign=bottom;align=center;html=1;whiteSpace=wrap;fontSize=10;fontStyle=1;spacing=3;shape=mxgraph.aws4.productIcon;prIcon=mxgraph.aws4.ecs;" vertex="1" parent="KD8z_VLSOWN3E_mmizZI-5">
+          <mxGeometry width="39.28571428571429" height="46.94444444444445" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="KD8z_VLSOWN3E_mmizZI-5" source="KD8z_VLSOWN3E_mmizZI-14" target="KD8z_VLSOWN3E_mmizZI-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-57" value="&amp;nbsp; 5.&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KD8z_VLSOWN3E_mmizZI-40">
+          <mxGeometry x="-0.1151" y="-3" relative="1" as="geometry">
+            <mxPoint y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-14" value="&lt;span style=&quot;caret-color: rgb(189, 199, 212);&quot;&gt;API Service&lt;/span&gt;" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=pod;fontColor=light-dark(#000000,#FFFFFF);" vertex="1" parent="KD8z_VLSOWN3E_mmizZI-5">
+          <mxGeometry x="77.72285714285715" y="52.577777777777776" width="32.39121951219512" height="31.09756097560976" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-13" value="&lt;span style=&quot;caret-color: rgb(189, 199, 212);&quot;&gt;Web Server Service&lt;/span&gt;" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=pod;fontColor=light-dark(#000000,#FFFFFF);" vertex="1" parent="KD8z_VLSOWN3E_mmizZI-5">
+          <mxGeometry x="204.82216748768477" y="51.57555555555555" width="31.09756097560976" height="29.85365853658537" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-15" value="&lt;span style=&quot;caret-color: rgb(189, 199, 212);&quot;&gt;Artisan Service(Laravel)&lt;/span&gt;" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=pod;fontColor=light-dark(#000000,#FFFFFF);" vertex="1" parent="KD8z_VLSOWN3E_mmizZI-5">
+          <mxGeometry x="235.92142857142858" y="130.0033333333334" width="31.09756097560976" height="29.85365853658537" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-16" value="&lt;span style=&quot;caret-color: rgb(189, 199, 212);&quot;&gt;Queue Service&lt;/span&gt;" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=pod;fontColor=light-dark(#000000,#FFFFFF);" vertex="1" parent="KD8z_VLSOWN3E_mmizZI-5">
+          <mxGeometry x="167.90285714285713" y="200" width="31.09756097560976" height="29.85365853658537" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.005;exitY=0.63;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.829;entryY=0.555;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="KD8z_VLSOWN3E_mmizZI-5" source="KD8z_VLSOWN3E_mmizZI-13" target="KD8z_VLSOWN3E_mmizZI-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-52" value="&amp;nbsp; 3.&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KD8z_VLSOWN3E_mmizZI-35">
+          <mxGeometry x="-0.2885" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="KD8z_VLSOWN3E_mmizZI-5" source="KD8z_VLSOWN3E_mmizZI-14" target="KD8z_VLSOWN3E_mmizZI-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="217" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="102" y="131" />
+              <mxPoint x="183" y="131" />
+              <mxPoint x="183" y="190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-53" value="&amp;nbsp; 6.&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KD8z_VLSOWN3E_mmizZI-36">
+          <mxGeometry x="-0.0487" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-39" value="&lt;span style=&quot;caret-color: rgb(189, 199, 212);&quot;&gt;Chat-API Service&lt;/span&gt;" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=pod;fontColor=light-dark(#000000,#FFFFFF);" vertex="1" parent="KD8z_VLSOWN3E_mmizZI-5">
+          <mxGeometry x="36.57142857142857" y="155.5832777777778" width="32.39121951219512" height="31.09756097560976" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KD8z_VLSOWN3E_mmizZI-20" target="KD8z_VLSOWN3E_mmizZI-106">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-20" value="Amazon SQS" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.sqs;fillColor=#D9A741;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="349" y="613" width="76.5" height="93" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-26" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="778" y="448" width="60" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-24" value="" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="KD8z_VLSOWN3E_mmizZI-26">
+          <mxGeometry x="8" width="32" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-25" value="Mobile User" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="KD8z_VLSOWN3E_mmizZI-26">
+          <mxGeometry y="60" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-27" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="713" y="270.34000000000003" width="60" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-22" value="" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="KD8z_VLSOWN3E_mmizZI-27">
+          <mxGeometry x="8" y="-10" width="40" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-23" value="Desktop User" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="KD8z_VLSOWN3E_mmizZI-27">
+          <mxGeometry y="60" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-28" value="" style="sketch=0;verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;fillColor=#000000;align=center;outlineConnect=0;pointerEvents=1;shape=mxgraph.citrix2.desktop;" vertex="1" parent="1">
+          <mxGeometry x="521.09" y="271.17" width="50" height="38.66" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KD8z_VLSOWN3E_mmizZI-22" target="KD8z_VLSOWN3E_mmizZI-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-41" value="&amp;nbsp; 1.&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KD8z_VLSOWN3E_mmizZI-29">
+          <mxGeometry x="-0.2013" y="-1" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.967;exitY=0.429;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="KD8z_VLSOWN3E_mmizZI-31" target="KD8z_VLSOWN3E_mmizZI-24">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="625" y="540.5288235294117" as="sourcePoint" />
+            <mxPoint x="893" y="685.47" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-31" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.smartphone;" vertex="1" parent="1">
+          <mxGeometry x="704" y="445" width="34" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;exitX=0.995;exitY=0.63;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="KD8z_VLSOWN3E_mmizZI-16" target="KD8z_VLSOWN3E_mmizZI-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-58" value="&amp;nbsp; 7.&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KD8z_VLSOWN3E_mmizZI-37">
+          <mxGeometry x="0.31" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.766;entryY=0.635;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="KD8z_VLSOWN3E_mmizZI-28" target="KD8z_VLSOWN3E_mmizZI-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-50" value="&amp;nbsp; 2.&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KD8z_VLSOWN3E_mmizZI-49">
+          <mxGeometry x="-0.2216" y="3" relative="1" as="geometry">
+            <mxPoint x="3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-54" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.mysql_db_instance;fillColor=#2E73B8;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="213.92000000000002" y="140" width="60" height="64.5" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="KD8z_VLSOWN3E_mmizZI-14" target="KD8z_VLSOWN3E_mmizZI-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-56" value="&amp;nbsp; 4.&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KD8z_VLSOWN3E_mmizZI-55">
+          <mxGeometry x="0.1595" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KD8z_VLSOWN3E_mmizZI-59" target="KD8z_VLSOWN3E_mmizZI-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-59" value="Amazon SNS" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.sns;fillColor=#D9A741;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="160" y="586" width="76.5" height="76.5" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KD8z_VLSOWN3E_mmizZI-64" target="KD8z_VLSOWN3E_mmizZI-106">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-112" value="Mobile Notifications(Producers)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KD8z_VLSOWN3E_mmizZI-108">
+          <mxGeometry x="-0.0256" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-64" value="" style="strokeColor=#dddddd;shadow=1;strokeWidth=1;rounded=1;absoluteArcSize=1;arcSize=2;" vertex="1" parent="1">
+          <mxGeometry x="497" y="720" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-65" value="Firebase" style="sketch=0;dashed=0;connectable=0;html=1;fillColor=#5184F3;strokeColor=none;shape=mxgraph.gcp2.firebase;part=1;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;spacingLeft=5;fontColor=#999999;fontSize=12;" vertex="1" parent="KD8z_VLSOWN3E_mmizZI-64">
+          <mxGeometry width="32.4" height="45" relative="1" as="geometry">
+            <mxPoint x="5" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-71" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.email;fillColor=#D9A741;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="10" y="720" width="81" height="61.5" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KD8z_VLSOWN3E_mmizZI-16" target="KD8z_VLSOWN3E_mmizZI-64">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="333" y="750" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-81" value="&amp;nbsp; 8.&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KD8z_VLSOWN3E_mmizZI-79">
+          <mxGeometry x="-0.8222" relative="1" as="geometry">
+            <mxPoint y="138" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KD8z_VLSOWN3E_mmizZI-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="230" y="610" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="260" y="440" />
+              <mxPoint x="260" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-82" value="&amp;nbsp; 9.&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KD8z_VLSOWN3E_mmizZI-80">
+          <mxGeometry x="0.0867" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-89" value="&lt;ol&gt;&lt;li style=&quot;text-align: left;&quot;&gt;User Initiate Audio/Video Calls&lt;br&gt;&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Web server processes the requests and sends the request to appropriate API requests&lt;br&gt;&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Process the incoming call request from the user, save the information to database&lt;br&gt;&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Create new Vonage id from the chat service and send it back to api&lt;br&gt;&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Trigger the event for sending the incoming call requests on sqs&lt;br&gt;&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Queue service to process the incoming call request&amp;nbsp;&lt;br&gt;&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Call requests generate multiple events to sql&lt;br&gt;&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Send notification for incoming call to mobile users using firebase&lt;br&gt;&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Send email and sms notifications &amp;nbsp;using sns&lt;/li&gt;&lt;/ol&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="500" y="10" width="340" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-116" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KD8z_VLSOWN3E_mmizZI-101" target="KD8z_VLSOWN3E_mmizZI-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-119" value="Consumers" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KD8z_VLSOWN3E_mmizZI-116">
+          <mxGeometry x="-0.0063" y="-3" relative="1" as="geometry">
+            <mxPoint x="3" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-101" value="Pusher Webhook and Vonage APIs for audio/video calls" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="486" y="450" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-115" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="KD8z_VLSOWN3E_mmizZI-106" target="KD8z_VLSOWN3E_mmizZI-101">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-118" value="Producers" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KD8z_VLSOWN3E_mmizZI-115">
+          <mxGeometry x="-0.1502" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-106" value="Topic: Chat Service Broadcast(Presence Channel)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="605.5" width="112" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-117" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.438;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="KD8z_VLSOWN3E_mmizZI-101" target="KD8z_VLSOWN3E_mmizZI-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-120" value="Consumers" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KD8z_VLSOWN3E_mmizZI-117">
+          <mxGeometry x="0.1088" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-122" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="KD8z_VLSOWN3E_mmizZI-39" target="KD8z_VLSOWN3E_mmizZI-106">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="203" y="570" />
+              <mxPoint x="518" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-123" value="Publish Chat Event(Producers)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KD8z_VLSOWN3E_mmizZI-122">
+          <mxGeometry x="-0.6038" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KD8z_VLSOWN3E_mmizZI-125" value="Event-Driven Architecture - Audio/Video Calls" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=25;" vertex="1" parent="1">
+          <mxGeometry x="10" y="10" width="830" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
