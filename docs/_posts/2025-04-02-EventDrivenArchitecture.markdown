@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "Event Driven Architecture"
+title:  "Event-Driven Architecture for Real-Time Communication"
 date:   2025-04-02 10:52:00 - 0700
 categories: event driven architecture, sqs, sns, aws, firebase, vonage, laravel, ecs
 ---
-## Event Driven Architecture - Exmaple for Audio/Video Calls
+## Event-Driven Architecture for Real-Time Communication: Orchestrating the Symphony of Audio/Video Calls
 
 ## Introduction
 
