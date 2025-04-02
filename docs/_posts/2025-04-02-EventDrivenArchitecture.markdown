@@ -4,7 +4,7 @@ title:  "Event-Driven Architecture for Real-Time Communication"
 date:   2025-04-02 10:52:00 - 0700
 categories: event driven architecture, sqs, sns, aws, firebase, vonage, laravel, ecs
 ---
-## Event-Driven Architecture for Real-Time Communication: Orchestrating the Symphony of Audio/Video Calls
+## Orchestrating the Symphony of Audio/Video Calls
 
 ## Introduction
 
