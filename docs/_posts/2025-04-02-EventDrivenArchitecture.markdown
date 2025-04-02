@@ -8,15 +8,19 @@ categories: event driven architecture, sqs, sns, aws, firebase, vonage, laravel,
 
 ## Introduction
 
-Another topic on cloud architecture is Event-Driven. What is Event-Driven Architecture? Event-Driven Architecture (EDA) is a software design pattern in which system components communicate and react to events rather than relying on direct requests between services. In this model, an event represents a significant change in state, such as a user clicking a button, a new order being placed, or a sensor detecting a temperature change.
+Event-Driven Architecture (EDA) is a software design pattern in which system components communicate and react to events rather than relying on direct requests between services. In this model, an event represents a significant change in state, such as a user clicking a button, a new order being placed, or a sensor detecting a temperature change.
 
 ## Key Components of Event-Driven Architecture
 
-1. Events – Represent state changes or occurrences (e.g., "OrderPlaced", "UserLoggedIn").
-2. Producers – Generate and publish events when changes occur.
-3. Event Brokers/Message Queues – Middleware that routes events between producers and consumers (e.g., Kafka, RabbitMQ, AWS SNS/SQS).
-4. Consumers – Subscribe to and process events asynchronously.
-5. Event Store (Optional) – A repository to log and replay past events.
+* Events – Represent state changes or occurrences (e.g., “OrderPlaced”, “UserLoggedIn”).
+
+* Producers – Generate and publish events when changes occur.
+
+* Event Brokers/Message Queues – Middleware that routes events between producers and consumers (e.g., Kafka, RabbitMQ, AWS SNS/SQS).
+
+* Consumers – Subscribe to and process events asynchronously.
+
+* Event Store (Optional) – A repository to log and replay past events.
 
 ## Example Audio/Video Calls Event Driven Architecture
 
@@ -64,4 +68,6 @@ Key Benefits of this Event-Driven Approach
 * Scalability: The system can handle large volumes of concurrent call requests.
 * Decoupled Services: Each service functions independently, improving fault tolerance.
 * Real-Time Notifications: Users receive instant call alerts via Firebase, WebSockets, and SMS.
+
+This architecture enables efficient, scalable, and real-time communication between application users and mobile users while leveraging event-driven patterns to manage call states dynamically.
 
