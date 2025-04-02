@@ -21,6 +21,8 @@ Another topic on cloud architecture is Event-Driven. What is Event-Driven Archit
 ## Example Audio/Video Calls Event Driven Architecture
 
 ### How it works
+![Event Driven Architecture](/swapna/images/EventDrivenArchitecture.png)
+
 The diagram illustrates an Event-Driven Architecture for Audio/Video Calls using AWS SQS, SNS, Firebase, Laravel (Artisan Service), and Vonage APIs. Here's a breakdown of the architecture:
 1. User Initiates a Call
 A desktop or mobile user initiates an audio/video call request.
@@ -63,4 +65,3 @@ Key Benefits of this Event-Driven Approach
 * Decoupled Services: Each service functions independently, improving fault tolerance.
 * Real-Time Notifications: Users receive instant call alerts via Firebase, WebSockets, and SMS.
 
-![Event Driven Architecture](/swapna/images/EventDrivenArchitecture.png)
