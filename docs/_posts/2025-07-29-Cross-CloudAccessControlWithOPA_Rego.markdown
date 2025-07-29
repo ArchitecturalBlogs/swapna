@@ -1,73 +1,35 @@
 ---
 layout: post
-title:  "Event-Driven Architecture for Real-Time Communication"
-date:   2025-04-02 10:52:00 - 0700
-categories: event driven architecture, sqs, sns, aws, firebase, vonage, laravel, ecs
+title:  "Cross-cloud access control with OPA Rego"
+date:   2025-07-29 01:39:00 - 0700
+categories: #OPA #Rego #PolicyAsCode #CloudSecurity #AWS #Azure #S3 #BlobStorage #IAM #Authorization #DevSecOps #ZeroTrust #CloudNative #MultiCloud
 ---
-## Orchestrating the Symphony of Audio/Video Calls
+## Cross-cloud access control with OPA Rego – AWS S3 & Azure Storage
 
 ## Introduction
 
-Event-Driven Architecture (EDA) is a software design pattern in which system components communicate and react to events rather than relying on direct requests between services. In this model, an event represents a significant change in state, such as a user clicking a button, a new order being placed, or a sensor detecting a temperature change.
+I set up authorization policies using the Open Policy Agent (OPA) with Rego to do fine-grained access control in multi-cloud environments on:
 
-## Key Components of Event-Driven Architecture
+* AWS S3 Buckets
+* Azure Blob Storage Containers
 
-* Events – Represent state changes or occurrences (e.g., “OrderPlaced”, “UserLoggedIn”).
+## Use Case:
+Rego policies were defined to control access based on user identity, roles, and action types.
+Rules enforced include:
+* Deny write access to public S3 buckets
+* Block delete actions on Azure containers unless explicitly allowed.
 
-* Producers – Generate and publish events when changes occur.
+Input claims, which come from a JWT/identity provider, were utilized to make dynamic access decisions.
+The set of Rego policies were tested using opa test --verbose and enhanced with print() statements for debugging, which proved to be very helpful in validating conditions across different identity providers and storage models.
 
-* Event Brokers/Message Queues – Middleware that routes events between producers and consumers (e.g., Kafka, RabbitMQ, AWS SNS/SQS).
+This approach can also be extended to multiple stages of the cloud lifecycle:
 
-* Consumers – Subscribe to and process events asynchronously.
+* At runtime: Intercept API calls before execution using tools like AWS API Gateway or Azure API Management, and enforce decisions through OPA policies.
+* During provisioning: Integrate with Terraform (via tools like OPA Terraform Validator or Sentinel/OPA plugins) to enforce policies before infrastructure is created, preventing misconfigurations at source.
+* Post-deployment: Continuously scan and evaluate existing cloud resources (S3 buckets, Azure storage containers, IAM roles, etc.) against Rego policies to detect drift or violations.
 
-* Event Store (Optional) – A repository to log and replay past events.
+This enables unified, consistent, and automated governance across AWS and Azure — whether it's proactive prevention or reactive detection.
 
-## Example Audio/Video Calls Event Driven Architecture
+The result: centralized, consistent, and scalable access checks in a zero-trust architecture.
 
-### How it works
-![Event Driven Architecture](/swapna/images/EventDrivenArchitecture.png)
-
-The diagram illustrates an Event-Driven Architecture for Audio/Video Calls using AWS SQS, SNS, Firebase, Laravel (Artisan Service), and Vonage APIs. Here's a breakdown of the architecture:
-1. User Initiates a Call
-A desktop or mobile user initiates an audio/video call request.
-The request is sent to the Web Server Service for processing.
-
-2. Processing the Request
-The Web Server Service routes the request to the appropriate API Service.
-The Chat API Service processes the request and stores relevant details in MySQL.
-
-3. Generate Vonage ID
-The Chat API Service interacts with Vonage APIs to create a unique call session ID.
-This ID is sent back to the API for further processing.
-
-4. Publishing Call Events to SQS
-The system triggers an event to send the incoming call request to AWS SQS.
-The event is published under the topic: Chat Service Broadcast (Presence Channel).
-
-5. Queue Processing & Notifications
-The Queue Service processes the incoming call request.
-Notifications are sent to mobile users via Firebase Cloud Messaging (FCM).
-SMS and email alerts are sent using Amazon SNS.
-
-6️. Call Established
-Mobile users and desktop users consume the event and receive notifications.
-Pusher Webhook and Vonage APIs are used to establish real-time audio/video communication between users.
-
-Key Technologies Used
-
-1. Laravel Artisan Service - Handles background job processing
-2. Amazon SQS - Manages event-driven messaging for call requests
-3. Amazon SNS - Sends notifications via SMS and email
-4. Firebase (FCM) - Sends push notifications to mobile users
-5. Vonage API - Manages WebRTC-based audio/video calls
-6. Pusher WebSockets - Handles real-time presence and chat broadcasting
-
-Key Benefits of this Event-Driven Approach
-
-* Asynchronous Processing: SQS ensures call events are handled efficiently without blocking users.
-* Scalability: The system can handle large volumes of concurrent call requests.
-* Decoupled Services: Each service functions independently, improving fault tolerance.
-* Real-Time Notifications: Users receive instant call alerts via Firebase, WebSockets, and SMS.
-
-This architecture enables efficient, scalable, and real-time communication between application users and mobile users while leveraging event-driven patterns to manage call states dynamically.
-
+#OPA #Rego #PolicyAsCode #CloudSecurity #AWS #Azure #S3 #BlobStorage #IAM #Authorization #DevSecOps #ZeroTrust #CloudNative #MultiCloud
