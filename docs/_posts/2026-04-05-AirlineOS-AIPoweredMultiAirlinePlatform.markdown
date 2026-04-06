@@ -72,7 +72,7 @@ PNR-based confirmation
 <b>Booking Management</b>
 View upcoming/past trips
 Cancel bookings
-<b>AI Assistant (Context-Aware)</a>
+<b>AI Assistant (Context-Aware)</b>
 Available across all pages
 Answers FAQs, suggests upgrades, handles disruptions
 Understands user’s current booking and context
