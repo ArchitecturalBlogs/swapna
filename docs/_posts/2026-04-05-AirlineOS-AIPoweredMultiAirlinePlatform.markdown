@@ -41,6 +41,7 @@ Key Capabilities:
 * Shared infrastructure with configurable airline-specific behavior
 
 Tenant (Airline)
+
    ├── Users (Passengers + Staff)
    ├── Flights
    ├── Bookings
@@ -168,3 +169,4 @@ This project demonstrates my ability to:
 * Think in terms of platforms, not just features
 * Balance user experience + operational efficiency
 * Implement real-world, production-ready systems
+
