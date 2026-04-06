@@ -26,7 +26,7 @@ Traditional airline systems are:
 
 * <b><a href="https://github.com/swapna15/airline-app">GIHTUB Link</a></b>
 
-* <b><a href="https://airline-app-nu.vercel.app">Webiste(Vercel - need to login and have access)</a></b>
+* <b><a href="https://airline-app-nu.vercel.app">Webiste(Vercel)</a></b>
 
 ## Solution
 I built Airline OS, a modular, AI-driven platform that acts as a central operating system for airlines.
