@@ -24,8 +24,9 @@ Traditional airline systems are:
 4. Airlines need a single platform that combines:
 5. Booking + Operations + AI-driven decision-making
 
-GIHTUB - https://github.com/swapna15/airline-app
-Webiste(Vercel - need to login and have access) - https://airline-42lfkwean-swapnakm15-5775s-projects.vercel.app
+* GIHTUB - https://github.com/swapna15/airline-app
+
+* Webiste(Vercel - need to login and have access) - https://airline-42lfkwean-swapnakm15-5775s-projects.vercel.app
 
 ## Solution
 I built Airline OS, a modular, AI-driven platform that acts as a central operating system for airlines.
