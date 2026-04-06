@@ -41,12 +41,11 @@ Key Capabilities:
 * Shared infrastructure with configurable airline-specific behavior
 
 Tenant (Airline)
-
-   ├── Users (Passengers + Staff)
-   ├── Flights
-   ├── Bookings
-   ├── Configurations
-   ├── AI Preferences
+* Users (Passengers + Staff)
+* Flights
+* Bookings
+* Configurations
+* AI Preferences
 
 ## Personalization Engine
 * Airline-level customization (pricing, policies, workflows)
