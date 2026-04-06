@@ -65,41 +65,48 @@ Example:
 Parsed into structured search using AI
 
 <b>Booking Flow</b>
-Interactive seat selection with dynamic pricing
-Multi-passenger data capture
-Transparent checkout (fare + taxes + add-ons)
-PNR-based confirmation
+* Interactive seat selection with dynamic pricing
+* Multi-passenger data capture
+* Transparent checkout (fare + taxes + add-ons)
+* PNR-based confirmation
+
 <b>Booking Management</b>
-View upcoming/past trips
-Cancel bookings
+* View upcoming/past trips
+* Cancel bookings
+
 <b>AI Assistant (Context-Aware)</b>
-Available across all pages
-Answers FAQs, suggests upgrades, handles disruptions
-Understands user’s current booking and context
+* Available across all pages
+* Answers FAQs, suggests upgrades, handles disruptions
+* Understands user’s current booking and context
+
 <b>Staff Operations (Role-Based)</b>
+
 <b>Check-in Agent</b>
-Passenger lookup via PNR/name
-Check-in and boarding pass generation
-<b>Gate Manager</b>
-Real-time boarding metrics
-Flight status progression:
-Scheduled → Boarding → Final Call → Closed → Departed
+* Passenger lookup via PNR/name
+* Check-in and boarding pass generation
+
+<b>Gate Mana`ger</b>
+* Real-time boarding metrics
+* Flight status progression:
+* Scheduled → Boarding → Final Call → Closed → Departed
+
 <b>Coordinator</b>
-Global flight monitoring dashboard
-AI-powered disruption recommendations
+* Global flight monitoring dashboard
+* AI-powered disruption recommendations
+
 <b>Admin</b>
-Operational analytics (flights, revenue, on-time performance)
-User and role management
-Flight configuration
+* Operational analytics (flights, revenue, on-time performance)
+* User and role management
+* Flight configuration
 
 ## AI Agent Framework
-A key innovation in this project is the modular AI agent architecture.
+* A key innovation in this project is the modular AI agent architecture.
 
 <b>Core Agents:</b>
-SearchAgent → Converts natural language into structured flight queries
-RecommendationAgent → Suggests upgrades and add-ons
-SupportAgent → Handles FAQs and passenger queries
-DisruptionAgent → Provides rebooking and recovery strategies
+* SearchAgent → Converts natural language into structured flight queries
+* RecommendationAgent → Suggests upgrades and add-ons
+* SupportAgent → Handles FAQs and passenger queries
+* DisruptionAgent → Provides rebooking and recovery strategies
 
 <b>Agent Orchestration Layer</b>
 All agents are routed through a centralized orchestrator:
