@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Airline OS — AI-Powered Multi-Airline Platform"
-date:   2026-5-5 17:10:25 -0600
+date:   2026-04-05
 categories: Serverless Architecture
 ---
 
