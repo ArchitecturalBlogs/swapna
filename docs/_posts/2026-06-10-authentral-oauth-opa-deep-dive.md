@@ -4,13 +4,13 @@ title: "Authentral: Centralized Auth + Externalized Authorization for Airline Gr
 date: 2026-06-10
 categories: [security, architecture]
 tags: [oauth2, pkce, opa, rego, fastapi, microsoft-entra, authorization]
-author: mddeepak13
+author: swapnak15
 ---
 
 This post walks through **Authentral** — a portfolio project that demonstrates centralized authentication via Microsoft Entra ID (OAuth 2.0 + PKCE) and externalized authorization via Open Policy Agent (OPA). The scenario is an airline ground operations portal where two roles — Gate Manager and Station Master — have distinct, policy-enforced capabilities.
 
 Live demo: [authentral.vercel.app](https://authentral.vercel.app)  
-Source: [github.com/mddeepak13/authentral](https://github.com/mddeepak13/authentral)
+Source: [github.com/swapnak15/authentral](https://github.com/swapnak15/authentral)
 
 ---
 
@@ -279,7 +279,7 @@ async def evaluate(input_doc: dict) -> dict:
 
 ```bash
 # 1. Clone and configure
-git clone https://github.com/mddeepak13/authentral
+git clone https://github.com/swapnak15/authentral
 cp .env.example api/.env   # fill in TENANT_ID, CLIENT_ID, etc.
 
 # 2. Start all services (FastAPI + OPA sidecar)
