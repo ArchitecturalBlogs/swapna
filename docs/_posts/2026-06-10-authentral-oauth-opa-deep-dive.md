@@ -4,7 +4,6 @@ title: "Authentral: Centralized Auth + Externalized Authorization for Airline Gr
 date: 2026-06-10
 categories: [security, architecture]
 tags: [oauth2, pkce, opa, rego, fastapi, microsoft-entra, authorization]
-author: swapnak15
 ---
 
 This post walks through **Authentral** — a portfolio project that demonstrates centralized authentication via Microsoft Entra ID (OAuth 2.0 + PKCE) and externalized authorization via Open Policy Agent (OPA). The scenario is an airline ground operations portal where two roles — Gate Manager and Station Master — have distinct, policy-enforced capabilities.
@@ -238,6 +237,150 @@ A Gate Manager assigned to `T1-B` can reassign a flight _within_ `T1-B` — this
 ```
 
 The reason string is returned to the frontend as a `403` detail — useful for debugging, and it makes the policy auditable without grepping application logs.
+
+---
+
+## Service-to-Service Authentication (S2S)
+
+The flight service and the seat service are two separate FastAPI processes. When a user requests a seat manifest, the flow crosses a service boundary:
+
+```
+Browser → flight-service (port 8000) → seat-service (port 8001)
+```
+
+The seat service must not blindly trust any caller. But it also cannot make a second trip to Entra — the user's Entra token was issued for the flight service's audience and cannot be forwarded to another service (that would be a confused deputy problem). The solution is a **short-lived internal JWT minted by the flight service and validated by the seat service**.
+
+### Why not just forward the Entra token?
+
+An Entra access token carries `aud: api://authentral` — it was issued for the flight service. If the seat service tried to validate it, the audience check would fail. Even if the seat service accepted it, it would have no way to know whether the flight service had already run its own policy checks, or whether the token arrived through a legitimate path at all.
+
+A dedicated S2S token solves both problems:
+- It carries a distinct `iss` and `aud` that only the internal services recognise
+- It embeds the **already-validated** user context (roles, station, zones) so the seat service doesn't need its own Entra lookup
+- Its 60-second TTL limits replay exposure to one request lifetime
+
+### Token creation — flight service mints the token
+
+After validating the user's Entra token and running the first OPA check (can this user view this flight?), the flight service mints a service token:
+
+```python
+# s2s_auth.py
+def create_service_token(user_context: dict) -> str:
+    now = int(time.time())
+    payload = {
+        "iss": "authentral:flight-service",   # identifies the sender
+        "aud": "authentral:seat-service",     # scoped to one recipient
+        "sub": "flight-service",
+        "iat": now,
+        "exp": now + 60,                      # 60-second TTL
+        "user": user_context,                 # forwarded, validated claims
+    }
+    return jwt.encode(payload, config.SERVICE_JWT_SECRET, algorithm="HS256")
+```
+
+`user_context` contains only what the seat service needs:
+
+```python
+svc_token = s2s_auth.create_service_token({
+    "preferred_username": claims.get("preferred_username", ""),
+    "oid":                claims.get("oid", ""),
+    "roles":              user["roles"],            # from Entra JWT
+    "assigned_station":   user["assigned_station"], # from attributes.json
+    "assigned_zones":     user["assigned_zones"],   # from attributes.json
+})
+```
+
+The token is signed with `SERVICE_JWT_SECRET` (HS256 — shared secret between the two services). The seat service can verify the signature and trust the embedded claims without contacting Entra.
+
+### Token validation — seat service authenticates every request
+
+The seat service's dependency extracts and validates the token before any endpoint handler runs:
+
+```python
+# seat_service.py
+_bearer = HTTPBearer()
+
+def _require_service_token(
+    credentials: HTTPAuthorizationCredentials = Security(_bearer),
+) -> dict:
+    try:
+        return s2s_auth.validate_service_token(credentials.credentials)
+    except Exception:
+        raise HTTPException(status_code=401, detail="Invalid or missing service token")
+```
+
+Validation in `s2s_auth.validate_service_token`:
+
+```python
+def validate_service_token(token: str) -> dict:
+    return jwt.decode(
+        token,
+        config.SERVICE_JWT_SECRET,
+        algorithms=["HS256"],
+        audience="authentral:seat-service",    # must match exactly
+        issuer="authentral:flight-service",    # must match exactly
+        options={"require": ["exp", "iss", "aud", "sub", "user"]},
+    )
+```
+
+If the token is missing, expired, has a wrong audience, wrong issuer, or a tampered payload, `jwt.decode` raises and the request gets a 401 before reaching business logic.
+
+### Defence in depth — OPA runs twice
+
+The seat service doesn't simply trust the forwarded user context. It calls OPA **again** with the embedded claims before serving sensitive data:
+
+```
+1. Browser → flight-service
+      flight-service validates Entra JWT           ← authentication check #1
+      OPA: can this user VIEW this flight?         ← authorization check #1
+      flight-service mints S2S token
+
+2. flight-service → seat-service
+      seat-service validates S2S token             ← authentication check #2
+      OPA: can this user VIEW_SEAT_MANIFEST?       ← authorization check #2
+      seat-service returns manifest (or 403)
+```
+
+Even if the flight service has a bug that passes through an under-privileged user, the seat service's own OPA call independently denies the request. Neither service is the single point of trust.
+
+### The full proxy flow
+
+```python
+# main.py — _seat_proxy()
+async def _seat_proxy(flight_no, endpoint, claims, method="GET"):
+    flight = find_flight(flight_no)
+
+    # Step 1: OPA check at the flight-service boundary
+    view_decision = await opa_client.evaluate({
+        "user": user_context(claims),
+        "action": "view",
+        "resource": {"station": flight["station"], "zone": flight["zone"]},
+    })
+    if not view_decision["allow"]:
+        raise HTTPException(403, detail=view_decision["reason"])
+
+    # Step 2: Mint the S2S token embedding validated context
+    svc_token = s2s_auth.create_service_token({...})
+
+    # Step 3: Forward request with the S2S token
+    async with httpx.AsyncClient(timeout=5.0) as client:
+        resp = await client.get(
+            f"{config.SEAT_SERVICE_URL}{endpoint}",
+            headers={"Authorization": f"Bearer {svc_token}"},
+        )
+    ...
+```
+
+### Security properties of this design
+
+| Property | Mechanism |
+|---|---|
+| Seat service rejects unknown callers | HS256 signature — only services with `SERVICE_JWT_SECRET` can produce valid tokens |
+| Stolen token cannot be replayed | 60-second TTL; single-use in practice |
+| User context cannot be tampered | Embedded `user` claim is part of the signed payload |
+| Token cannot be used against other services | `aud: authentral:seat-service` is validated strictly |
+| Compromised flight service cannot escalate | Seat service runs its own OPA check independently |
+| Upgrade path to managed identity | Replace `SERVICE_JWT_SECRET` + HS256 with Entra Client Credentials + RS256; the `validate_service_token` interface stays the same |
 
 ---
 
