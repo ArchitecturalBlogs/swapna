@@ -21,9 +21,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   # Build job
   build:
@@ -38,8 +35,19 @@ jobs:
         with:
           source: ./docs
           destination: ./_site
+      - name: Package site
+        run: |
+          tar \
+            --dereference --hard-dereference \
+            --directory ./_site \
+            -cvf "$RUNNER_TEMP/artifact.tar" \
+            .
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-artifact@v5
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          if-no-files-found: error
 
   # Deployment job
   deploy:
