@@ -9,7 +9,7 @@ tags: [oauth2, pkce, opa, rego, fastapi, microsoft-entra, authorization]
 This post walks through **Authentral** — a portfolio project that demonstrates centralized authentication via Microsoft Entra ID (OAuth 2.0 + PKCE) and externalized authorization via Open Policy Agent (OPA). The scenario is an airline ground operations portal where two roles — Gate Manager and Station Master — have distinct, policy-enforced capabilities.
 
 Live demo: [authentral.vercel.app](https://authentral.vercel.app)  
-Source: [github.com/swapna15/authentral](https://github.com/swapna15/authentral)
+Source: [github.com/swapna15/authentral](https://github.com/swapna15/authentral) (private repo)
 
 ---
 
